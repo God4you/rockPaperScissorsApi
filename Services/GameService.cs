@@ -49,6 +49,9 @@ public class GameService
         if (!IsValidPlayerName(playerName))
             throw new ArgumentException("Player name must only contain alphabetic characters and spaces.");
 
+        if(playerName == game.PlayerOneName)
+            throw new ArgumentException("Player name cannot be the same as player one.");
+
         game.PlayerTwoName = playerName;
         game.PlayerTwoPassword = password;
 
