@@ -132,4 +132,14 @@ public class GameService
             _ => $"{playerTwoName} Wins!"
         };
     }
+    /// <summary>
+    /// Spectate the result of the game.
+    /// </summary>
+    public Game Spectate(string gameId)
+    {
+        if (_games.TryGetValue(gameId, out var game))
+            return game;
+
+        throw new KeyNotFoundException("Game not found");
+    }
 }

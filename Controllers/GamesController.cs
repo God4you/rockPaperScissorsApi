@@ -110,5 +110,28 @@ namespace APIRockPaperScissors.Controllers
                 return NotFound(new { message = "Game not found" });
             }
         }
+
+        /// <summary>
+        /// Retrieves the current status of the game, including moves and results.
+        /// </summary>
+        [HttpGet("{id}/spectate")]
+        public IActionResult GetStatusAsSpectator(string id)
+        {
+            try
+            {
+                var game = _gameService.Spectate(id);
+
+                return Ok(new
+                {
+                    PlayerOneName = game.PlayerOneName,
+                    PlayerTwoName = game.PlayerTwoName,
+                    Result = game.ResultDescription
+                });
+            }
+            catch (KeyNotFoundException)
+            {
+                return NotFound(new { message = "Game not found" });
+            }
+        }
     }
 }
