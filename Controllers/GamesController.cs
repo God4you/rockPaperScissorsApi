@@ -112,7 +112,7 @@ namespace APIRockPaperScissors.Controllers
         }
 
         /// <summary>
-        /// Retrieves the current status of the game, including moves and results.
+        /// Retrieves the current status of the game.
         /// </summary>
         [HttpGet("{id}/spectate")]
         public IActionResult GetStatusAsSpectator(string id)
