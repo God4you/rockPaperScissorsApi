@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 
 public class GameService
 {
+    // Preserving the in-memory game state
     private readonly ConcurrentDictionary<string, Game> _games = new();
 
     /// <summary>
