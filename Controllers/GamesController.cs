@@ -75,7 +75,7 @@ namespace APIRockPaperScissors.Controllers
 
             try
             {
-                var game = _gameService.SubmitMove(id, request.Credentials, request.Move);
+                var game = _gameService.SubmitMove(id, request.Credentials, (int)request.Move);
                 return Ok(new { message = $"Move submitted successfully by {request.Credentials.PlayerName}", gameStatus = game.IsCompleted ? "Game Completed" : "In Progress" });
             }
             catch (Exception ex)
